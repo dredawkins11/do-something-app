@@ -2,6 +2,12 @@ const router = require("express").Router();
 const { Todo, Note, User } = require("../models");
 
 router.get("/", async (req, res) => {
+
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+      }
+
     let todos;
     try {
         const todosData = await Todo.findAll({
@@ -23,5 +29,14 @@ router.get("/", async (req, res) => {
         todos: todos,
     });
 });
+
+router.get("/login", async (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+      }
+
+    res.render("login")
+})
 
 module.exports = router;
