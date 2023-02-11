@@ -1,61 +1,124 @@
 const router = require("express").Router();
-const { Todo } = require("../../models");
+const { Todo, User } = require("../../models");
 const auth = require("../../utils/auth");
 
+const handlebars = 'todo';
+
+//router.get('/', async(req, res) => {
+router.get('/', auth, async(req, res) => {
+   try {
+      const dbData = await Todo.findAll({
+         include: [{
+           model: User,
+           attributes: ['username']
+         }],
+         attributes: ['id', 'title', 'text', 'user_id']
+      });
+
+      items = dbData.map((item) =>
+        item.get({ plain: true })
+      );
+      /*
+
+      res.render(handlebars, {
+        items
+      });
+*/
+      res.send(items);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
+
+//router.get('/:id', async(req, res) => {
+router.get('/:id', auth, async(req, res) => {
+   try {
+      const dbData = await Todo.findOne({
+         where: {
+           id: req.params.id
+         },
+         include: [{
+           model: User,
+           attributes: ['username']
+         }],
+         attributes: ['id', 'title', 'text', 'user_id']
+       });
+      const item = dbData.get({ plain: true });
+/*
+      res.render(handlebars, {
+         item
+       });
+*/
+      res.send(item);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+});
+
+//router.post("/", async (req, res) => {
 router.post("/", auth, async (req, res) => {
     try {
-        const newTodo = await Todo.create({
-            ...req.body,
-            user_id: req.session.user_id,
+        const dbData = await Todo.create({
+            user_id: req.body.user_id,
+            title: req.body.title, 
+            text: req.body.text
         });
-
-        res.status(200).json(newTodo);
+        req.session.save(() => {
+          res.status(200).json(dbData);
+        });
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-router.put("/:id", auth, async (req, res) => {
+//router.put("/", async (req, res) => {
+router.put("/", auth, async (req, res) => {
     try {
-        const todoData = await Todo.update(
+        const dbData = await Todo.update(
             {
-                ...req.body,
-                user_id: req.session.user_id,
+               text: req.body.text,
+               title: req.body.title,
+               user_id: req.body.user_id
             },
             {
-                where: {
-                    id: req.params.id,
-                    user_id: req.session.user_id,
-                },
+               where: {
+                    id: req.body.id,
+                    //user_id: req.session.user_id,
+                }
             }
         );
 
-        if (!todoData) {
+        if (!dbData) {
             res.status(404).json({ message: "No todo found with this id!" });
             return;
         }
 
-        res.status(200).json(todoData);
+        req.session.save(() => {
+            res.status(200).json(dbData);
+        });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.delete("/:id", auth, async (req, res) => {
+//router.delete("/", async (req, res) => {
+router.delete("/", auth, async (req, res) => {
     try {
-        const todoData = await Todo.destroy({
+        const dbData = await Todo.destroy({
             where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
+                id: req.body.id
+                //user_id: req.session.user_id,
             },
         });
 
-        if (!todoData) {
+        if (!dbData) {
             res.status(404).json({ message: "No todo found with this id!" });
             return;
         }
 
-        res.status(200).json(todoData);
+        res.status(200).json(dbData);
     } catch (err) {
         res.status(500).json(err);
     }
