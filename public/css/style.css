@@ -1,0 +1,35 @@
+.Title{
+    font-size: 150%;
+    font-family: 'Brush Script MT', cursive;
+    text-align: center;
+    color: #596a79;
+}
+body{
+    background-color: #f0ece2;
+}
+.Notes{
+    border-color:#596a79; 
+    border: 1%;
+    background-color: #dfd3c3;
+    width: 99%;
+    height: 25%;
+    text-align: right;
+    color: #596a79;
+  
+}
+.todo{
+    border-color:#596a79; 
+    border: 1%;
+    width: 50%;
+    height: 25%;
+    color: #596a79;
+    Float: center;
+}
+
+.ranact{
+    border-color: 2px #596a79;
+    background-color: #dfd3c3;
+    width: 99%;
+    height: 25%;
+    align-content: center;
+}
