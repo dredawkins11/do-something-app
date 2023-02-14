@@ -4,16 +4,18 @@
     text-align: center;
     color: #596a79;
 }
+
 body{
     background-color: #f0ece2;
 }
+
 .Notes{
     border-color:#596a79; 
     border: 1%;
     background-color: #dfd3c3;
     width: 99%;
     height: 25%;
-    text-align: right;
+    text-align: left;
     color: #596a79;
   
 }
@@ -32,4 +34,15 @@ body{
     width: 99%;
     height: 25%;
     align-content: center;
+} 
+
+input, label {
+    display: block;
 }
+
+form
+ {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+ }
