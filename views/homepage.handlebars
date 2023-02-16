@@ -9,20 +9,24 @@
             <div class="note-inputs-container">
                 <label for="notes-title">Note Title</label>
                 <input id="notes-title" placeholder="Title" />
-                <label for="note-due-input">Date Noted</label>
-                <input id="note-due-input" type="datetime-local" value="" />
                 <button type="submit" id="notes-but"> Save Note</button>
             </div>
         </form>
-        <div class="note-list-container">
-            <ul id="note-list">
-                {{#each notes as |note|}}
+        <ul class="note-list-container">
+            {{#each notes as |note|}}
+                <li class="list-item">
                     <div>
-                        {{note.text}}
+                        <h3>
+                            {{note.title}}
+                        </h3>
+                        <p>
+                            {{note.text}}
+                        </p>
                     </div>
-                {{/each}}
-            </ul>
-        </div>
+                    <div class="note-delete-button">x</div>
+                </li>
+            {{/each}}
+        </ul>
     </section>
     <section class="todo">
         <h1>To-Do </h1>
@@ -30,21 +34,27 @@
             <form action="submit" id="todos-form">
                 <div class="todo-inputs-container">
                     <label for="todo-title">Title</label>
-                    <input type="text" />
+                    <input type="text" id="todo-title" />
                     <label for="todo-due-input">Due By</label>
-                    <input type="datetime-local" />
+                    <input type="datetime-local" id="todo-due-date" />
                     <button id="todo-but">Save To-Do</button>
                 </div>
             </form>
-            <div class="todo-list-container">
-                <ul id="todo-list">
-                    {{#each todos as |todo|}}
+            <ul class="todo-list-container">
+                {{#each todos as |todo|}}
+                    <li class="list-item">
                         <div>
-                            {{todo.title}}
+                            <h3>
+                                {{todo.title}}
+                            </h3>
+                            <p>
+                                {{format_date todo.due_date}}
+                            </p>
                         </div>
-                    {{/each}}
-                </ul>
-            </div>
+                        <div class="todo-delete-button">x</div>
+                    </li>
+                {{/each}}
+            </ul>
         </div>
     </section>
     <div class="ran-act">

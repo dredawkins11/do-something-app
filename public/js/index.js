@@ -1,63 +1,65 @@
-const Joi = window.joi
+const Joi = window.joi;
 
 const validate = {
-  todo(data) {
-      const schema = Joi.object({
-          title: Joi.string().alphanum().min(3).max(256).required(),
-      });
+    todo(data) {
+        const schema = Joi.object({
+            title: Joi.string().alphanum().min(3).max(256).required(),
+        });
 
-      return schema.validate(data);
-  },
-  note(data) {
-      const schema = Joi.object({
-          title: Joi.string().alphanum().min(3).max(256).required(),
-          text: Joi.string().required(),
-      });
+        return schema.validate(data);
+    },
+    note(data) {
+        const schema = Joi.object({
+            title: Joi.string().alphanum().min(3).max(256).required(),
+            text: Joi.string().required(),
+        });
 
-      return schema.validate(data);
-  },
+        return schema.validate(data);
+    },
 };
 
-const noteTitleInput = document.getElementById("notes-title");
-const notesBodyInput = document.getElementById("notes-body");
-const notesDueInput = document.getElementById("notes-due-input");
+const todosForm = document.getElementById("todos-form")
+todosForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-document.getElementById("todobut").addEventListener("click", async(event) => {
-  event.preventDefault();
-  
-  let title = document.getElementById("todo-title").value;
-  let text = document.getElementById("todolist").value;
+    let title = document.getElementById("todo-title").value;
+    let due_date = document.getElementById("todo-due-date").value
 
-  // user_id: req.body.user_id,
-  const response = await fetch('/api/todos', {
-    method: 'POST',
-    body: JSON.stringify({ title, text }),
-    headers: { 'Content-Type': 'application/json' },
-  });
- if (response.ok) {
-    //document.location.replace('/');
-  } else {
-    alert('Failed to Create todo.');
+    try {
+      const response = await fetch("/api/todos", {
+          method: "POST",
+          body: JSON.stringify({
+              title,
+              due_date
+          }),
+          headers: { "Content-Type": "application/json" },
+      });
+      const data = await response.json();
+      window.location.reload();
+      console.log(data);
+  } catch (error) {
+      console.log(error);
   }
 });
 
-function notelog() {
-    document.getElementById("notes-title").innerHTML = savenote;
-    document.getElementById("due").innerHTML = savenote;
-    
 const notesForm = document.getElementById("notes-form");
 notesForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const title = document.getElementById("notes-title").value;
+    const text = document.getElementById("notes-body").value;
+
     try {
         const response = await fetch("/api/notes", {
             method: "POST",
             body: JSON.stringify({
-                title: notesTitleInput.value,
-                text: notesBodyInput.value,
+                title,
+                text,
             }),
             headers: { "Content-Type": "application/json" },
         });
-        const data = await response.json()
+        const data = await response.json();
+        window.location.reload();
         console.log(data);
     } catch (error) {
         console.log(error);
@@ -66,8 +68,3 @@ notesForm.addEventListener("submit", async (e) => {
 
 const todoTitleInput = document.getElementById("todo-title");
 const todosDueInput = document.getElementById("todo-due-input");
-
-}
-function getactivity(){
-    
-}

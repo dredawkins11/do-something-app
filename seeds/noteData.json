@@ -1,20 +1,26 @@
 [
     {
+        "title": "Title of this",
         "text": "My notes about this..."
     },
     {
+        "title": "Title of that",
         "text": "My notes about that..."
     },
     {
+        "title": "Title of those things",
         "text": "My notes about those things..."
     },
     {
+        "title": "Title of these things",
         "text": "My notes about these things..."
     },
     {
+        "title": "Title of this and that",
         "text": "My notes about this and that..."
     },
     {
+        "title": "Title of some stuff",
         "text": "My notes about some stuff..."
     }
 ]

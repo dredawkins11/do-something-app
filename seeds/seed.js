@@ -17,7 +17,6 @@ const seedDatabase = async () => {
         await Note.create({
             ...note,
             user_id: users[Math.floor(Math.random() * users.length)].id,
-            date_created: Date.now()
         });
     }
 
@@ -25,7 +24,7 @@ const seedDatabase = async () => {
         await Todo.create({
             ...todo,
             user_id: users[Math.floor(Math.random() * users.length)].id,
-            date_created: Date.now()
+            due_date: Date.now()
         });
     }
 
