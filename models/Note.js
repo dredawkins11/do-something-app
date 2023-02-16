@@ -14,6 +14,9 @@ Note.init(
     text: {
       type: DataTypes.STRING,
     },
+    title: {
+      type: DataTypes.STRING,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
