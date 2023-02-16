@@ -57,11 +57,13 @@ router.get('/:id', auth, async(req, res) => {
     }
 });
 
-//router.post("/", async (req, res) => {
 router.post("/", auth, async (req, res) => {
+  console.log("user_id");
+  console.log(req.session.user_id);
     try {
         const dbData = await Todo.create({
-            user_id: req.body.user_id,
+            user_id: req.session.user_id,
+            //user_id: req.body.user_id,
             title: req.body.title, 
             text: req.body.text
         });
