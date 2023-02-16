@@ -1,6 +1,5 @@
-const Joi = require("joi");
 
-module.exports = {
+const validate =  {
     signUp(data) {
         const schema = Joi.object({
             username: Joi.string().alphanum().min(3).max(30).required(),

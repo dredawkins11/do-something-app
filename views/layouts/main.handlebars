@@ -26,9 +26,11 @@
         {{/if}}
     </nav>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/joi@17.7.1/dist/joi-browser.min.js"></script>
         {{{body}}}
         {{#if logged_in}}
             <script src="/js/logout.js"></script>
         {{/if}}
+        
     </body>
 </html>

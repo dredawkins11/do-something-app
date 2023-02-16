@@ -1,24 +1,27 @@
+const Joi = window.joi
+
+const validate = {
+  todo(data) {
+      const schema = Joi.object({
+          title: Joi.string().alphanum().min(3).max(256).required(),
+      });
+
+      return schema.validate(data);
+  },
+  note(data) {
+      const schema = Joi.object({
+          title: Joi.string().alphanum().min(3).max(256).required(),
+          text: Joi.string().required(),
+      });
+
+      return schema.validate(data);
+  },
+};
+
 const noteTitleInput = document.getElementById("notes-title");
 const notesBodyInput = document.getElementById("notes-body");
 const notesDueInput = document.getElementById("notes-due-input");
 
-var button = document.getElementById("notebut");
-/*
-button.addEventListener("click", function(save));
-button.addEventListener("click", function(addNote));
-
-function savenote() {
-    document.getElementById("notes-title").innerHTML = savenote;
-    document.getElementById("notesbod").innerHTML = savenote;
-    document.getElementById("due").innerHTML = savenote;
-}
-function addNote(notete) {
-  const logList = document.getElementById("notelist");
-  const listItem= document.createElement("li");
-  listItem.textContent = `${new Date().toLocaleString("en-US")}  -  ${noteText}`;
-  logList.appendChild(listItem);
-}
-*/
 document.getElementById("todobut").addEventListener("click", async(event) => {
   event.preventDefault();
   
