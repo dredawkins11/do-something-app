@@ -1,29 +1,27 @@
 <body>
     <section class="Notes">
         <h3>Notes</h3>
-        <form action="submit">
+        <form id="notes-form" action="submit">
             <div>
-
-                <label for="notesbod">Note Text</label>
-                <textarea id="notesbod" cols="50" rows="10"></textarea>
+                <label for="notes-body">Note Text</label>
+                <textarea id="notes-body" cols="50" rows="10"></textarea>
             </div>
             <div>
-
                 <label for="notes-title">Note Title</label>
                 <input id="notes-title" placeholder="Title" />
-                <label for="due">Date Noted</label>
-                <input id="due" type="datetime-local" value="" />
-                <button type="submit" id="notebut"> Save Note</button>
+                <label for="due-input">Date Noted</label>
+                <input id="note-due-input" type="datetime-local" value="" />
+                <button type="submit" id="notes-but"> Save Note</button>
             </div>
         </form>
 
-        <div id="notelog">
-            <ul id="notelist">
+        <div id="note-log">
+            <ul id="note-list">
             </ul>
         </div>
     </section>
     <section class="todo">
-        <form action="submit">
+        <form action="submit" id="todos-form">
         <h3>To-Do </h3>
         class="todotitle">
             //css position above body
@@ -31,23 +29,25 @@
                 css change width
                 <h5>To Do</h5><input id="todo-title" placeholder="To Do" />
                 <h5>Due Date</h5><input
-                    id="due"
+                    id="todo-due-input"
                     type="datetime-local"
                     value=""
                 />
             </ul>
-            <button id="todobut"> Save To-Do </button>
+            <button id="todo-but"> Save To-Do </button>
         </form>
-            <div id="todolog">
-                <ul id="todolist">
+            <div id="todo-log">
+                <ul id="todo-list">
                 </ul>
             </div>
         </div>
     </section>
-    <div class="ranact">
+    <div class="ran-act">
         <H4>Huh I really have nothing to do?!</H4>
-        <input />
         //is textarea better for API
+        <div id="random-idea"></div>
         <button onclick="getactivity()"> Something to do </button>
     </div>
+
+    <script src="/js/index.js"></script>
 </body>

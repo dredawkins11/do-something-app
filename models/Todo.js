@@ -15,9 +15,6 @@ Todo.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    text: {
-      type: DataTypes.STRING,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
