@@ -15,8 +15,9 @@ Todo.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    text: {
+    due_date: {
       type: DataTypes.STRING,
+      allowNull: true
     },
     user_id: {
       type: DataTypes.INTEGER,

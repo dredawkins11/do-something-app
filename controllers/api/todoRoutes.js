@@ -42,7 +42,7 @@ router.get('/:id', auth, async(req, res) => {
            model: User,
            attributes: ['username']
          }],
-         attributes: ['id', 'title', 'text', 'user_id']
+         attributes: ['id', 'title', 'user_id']
        });
       const item = dbData.get({ plain: true });
 /*
@@ -57,13 +57,14 @@ router.get('/:id', auth, async(req, res) => {
     }
 });
 
-//router.post("/", async (req, res) => {
 router.post("/", auth, async (req, res) => {
+  console.log("user_id");
+  console.log(req.session.user_id);
     try {
         const dbData = await Todo.create({
-            user_id: req.body.user_id,
-            title: req.body.title, 
-            text: req.body.text
+            user_id: req.session.user_id,
+            due_date: req.body.due_date,
+            title: req.body.title,
         });
         req.session.save(() => {
           res.status(200).json(dbData);
@@ -74,17 +75,17 @@ router.post("/", auth, async (req, res) => {
 });
 
 //router.put("/", async (req, res) => {
-router.put("/", auth, async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
     try {
         const dbData = await Todo.update(
             {
-               text: req.body.text,
                title: req.body.title,
+               due_date: req.body.due_date,
                user_id: req.body.user_id
             },
             {
                where: {
-                    id: req.body.id,
+                    id: req.params.id,
                     //user_id: req.session.user_id,
                 }
             }
@@ -104,11 +105,11 @@ router.put("/", auth, async (req, res) => {
 });
 
 //router.delete("/", async (req, res) => {
-router.delete("/", auth, async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
     try {
         const dbData = await Todo.destroy({
             where: {
-                id: req.body.id
+                id: req.params.id
                 //user_id: req.session.user_id,
             },
         });

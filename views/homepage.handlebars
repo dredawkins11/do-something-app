@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <body>
     <section class="Notes borders">
         <label for="notesbod">Notes</label>
@@ -5,21 +6,44 @@
             <div>
 
             <textarea id="notesbod" cols="150" rows="12"></textarea>
+=======
+<body class="content-body">
+    <section class="notes">
+        <h1>Notes</h1>
+        <form id="notes-form" action="submit">
+            <div class="note-body-container">
+                <label for="notes-body">Note Text</label>
+                <textarea id="notes-body" cols="50" rows="10"></textarea>
+>>>>>>> c2a45878fbf602c74e0d9617dfc5a13692ff08ba
             </div>
-            <div>
-
+            <div class="note-inputs-container">
                 <label for="notes-title">Note Title</label>
                 <input id="notes-title" placeholder="Title" />
+<<<<<<< HEAD
                 <button type="submit" id="notebut"> Save Note</button>
+=======
+                <button type="submit" id="notes-but"> Save Note</button>
+>>>>>>> c2a45878fbf602c74e0d9617dfc5a13692ff08ba
             </div>
         </form>
-
-        <div id="notelog">
-            <ul id="notelist">
-            </ul>
-        </div>
+        <ul class="note-list-container">
+            {{#each notes as |note|}}
+                <li class="list-item">
+                    <div>
+                        <h3>
+                            {{note.title}}
+                        </h3>
+                        <p>
+                            {{note.text}}
+                        </p>
+                    </div>
+                    <div class="note-delete-button">x</div>
+                </li>
+            {{/each}}
+        </ul>
     </section>
     <section class="todo">
+<<<<<<< HEAD
         <form action="submit">
        <label for="todo">To Do's</label>
       <section class="to-do-box">
@@ -35,19 +59,45 @@
                     type="datetime-local"
                     value=""
                 />
+=======
+        <h1>To-Do </h1>
+        <div>
+            <form action="submit" id="todos-form">
+                <div class="todo-inputs-container">
+                    <label for="todo-title">Title</label>
+                    <input type="text" id="todo-title" />
+                    <label for="todo-due-input">Due By</label>
+                    <input type="datetime-local" id="todo-due-date" />
+                    <button id="todo-but">Save To-Do</button>
+                </div>
+            </form>
+            <ul class="todo-list-container">
+                {{#each todos as |todo|}}
+                    <li class="list-item">
+                        <div>
+                            <h3>
+                                {{todo.title}}
+                            </h3>
+                            <p>
+                                {{format_date todo.due_date}}
+                            </p>
+                        </div>
+                        <div class="todo-delete-button">x</div>
+                    </li>
+                {{/each}}
+>>>>>>> c2a45878fbf602c74e0d9617dfc5a13692ff08ba
             </ul>
-            <button id="todobut"> Save To-Do </button>
-        </form>
-            <div id="todolog">
-                <ul id="todolist">
-                </ul>
-            </div>
         </div>
     </section>
+<<<<<<< HEAD
     <div class="ranact borders">
+=======
+    <div class="ran-act">
+>>>>>>> c2a45878fbf602c74e0d9617dfc5a13692ff08ba
         <H4>Huh I really have nothing to do?!</H4>
         <input />
-        //is textarea better for API
-        <button onclick="getactivity()"> Something to do </button>
+        <!-- is textarea better for API -->
+        <button id="nothing"> Something </button>
     </div>
+    <script src="js/index.js"></script>
 </body>

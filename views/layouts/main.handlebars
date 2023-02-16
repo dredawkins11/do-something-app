@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <nav>
-        <div class="Title">
+        <div class="title">
             <img
                 id="Logo"
                 src="/Images/Do-something-1.png"
@@ -17,7 +17,7 @@
             <h1>Do Something</h1>
                <label for="slogan">Your daily Task Manager</label>
         </div>
-
+        <div>{{user_id}}</div>
         {{#if logged_in}}
             <a  href="/login" id="logout">Logout</a>
         {{else}}
@@ -25,6 +25,7 @@
         {{/if}}
     </nav>
     <body>
+        <script src="https://cdn.jsdelivr.net/npm/joi@17.7.1/dist/joi-browser.min.js"></script>
         {{{body}}}
         {{#if logged_in}}
             <script src="/js/logout.js"></script>

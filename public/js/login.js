@@ -1,3 +1,5 @@
+const Joi = window.joi;
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -26,6 +28,9 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector("#email-signup").value.trim();
     const password = document.querySelector("#password-signup").value.trim();
 
+    if (validateSignUp({ email, password, username }).error)
+        return alert("Invalid email, username, or password");
+
     if (username && email && password) {
         const response = await fetch("/api/users", {
             method: "POST",
@@ -41,6 +46,16 @@ const signupFormHandler = async (event) => {
     }
 };
 
+function validateSignUp(data) {
+    const schema = Joi.object({
+        username: Joi.string().alphanum().min(3).max(30).required(),
+        password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
+        email: Joi.string().email({ tlds: { allow: false } }),
+    });
+
+    return schema.validate(data);
+}
+
 document
     .querySelector(".login-form")
     .addEventListener("submit", loginFormHandler);
@@ -48,3 +63,4 @@ document
 document
     .querySelector(".signup-form")
     .addEventListener("submit", signupFormHandler);
+
