@@ -1,55 +1,50 @@
-<body>
-    <section class="Notes">
-        <h3>Notes</h3>
+<body class="content-body">
+    <section class="notes">
+        <h1>Notes</h1>
         <form id="notes-form" action="submit">
-            <div>
+            <div class="note-body-container">
                 <label for="notes-body">Note Text</label>
                 <textarea id="notes-body" cols="50" rows="10"></textarea>
             </div>
-            <div>
+            <div class="note-inputs-container">
                 <label for="notes-title">Note Title</label>
                 <input id="notes-title" placeholder="Title" />
-                <label for="due-input">Date Noted</label>
+                <label for="note-due-input">Date Noted</label>
                 <input id="note-due-input" type="datetime-local" value="" />
                 <button type="submit" id="notes-but"> Save Note</button>
             </div>
         </form>
-
-        <div id="note-log">
+        <div class="note-list-container">
             <ul id="note-list">
                 {{#each notes as |note|}}
                     <div>
-                        {{note.title}}
+                        {{note.text}}
                     </div>
                 {{/each}}
             </ul>
         </div>
     </section>
     <section class="todo">
-        <form action="submit" id="todos-form">
-            <h3>To-Do </h3>
-            <div class="todotitle">
-                <!-- css position above body -->
-                <ul>
-                    css change width
-                    <h5>To Do</h5><input id="todo-title" placeholder="To Do" />
-                    <h5>Due Date</h5><input
-                        id="todo-due-input"
-                        type="datetime-local"
-                        value=""
-                    />
+        <h1>To-Do </h1>
+        <div>
+            <form action="submit" id="todos-form">
+                <div class="todo-inputs-container">
+                    <label for="todo-title">Title</label>
+                    <input type="text" />
+                    <label for="todo-due-input">Due By</label>
+                    <input type="datetime-local" />
+                    <button id="todo-but">Save To-Do</button>
+                </div>
+            </form>
+            <div class="todo-list-container">
+                <ul id="todo-list">
+                    {{#each todos as |todo|}}
+                        <div>
+                            {{todo.title}}
+                        </div>
+                    {{/each}}
                 </ul>
             </div>
-            <button id="todo-but"> Save To-Do </button>
-        </form>
-        <div id="todo-log">
-            <ul id="todo-list">
-                {{#each todos as |todo|}}
-                    <div>
-                        {{todo.title}}
-                    </div>
-                {{/each}}
-            </ul>
         </div>
     </section>
     <div class="ran-act">
