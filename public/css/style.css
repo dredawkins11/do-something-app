@@ -22,10 +22,12 @@ body{
 .todo{
     border-color:#596a79; 
     border: 1%;
-    width: 50%;
+    box-sizing: 50%;
     height: 25%;
+    width: 50%;
     color: #596a79;
-    Float: center;
+    display: flexbox;
+    justify-content: space-around;
 }
 
 .ranact{
