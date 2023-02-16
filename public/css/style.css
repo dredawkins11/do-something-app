@@ -3,6 +3,24 @@
     font-family: 'Brush Script MT', cursive;
     text-align: center;
     color: #596a79;
+    border: 2px solid;
+    padding: 10px;
+    box-shadow: 1px 1px 50px red, 2px 2px 20px black;
+    margin: 20px;
+    
+}
+label[for=title]{
+    font-family: cursive;
+    font-size: 95%;
+}
+ 
+label[for=note-title]{
+    box-shadow: 3px 3px #596a79; //shadow around text 
+
+}
+.form{
+    box-shadow: 3px 3px #596a79;
+
 }
 
 body{
