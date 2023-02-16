@@ -17,29 +17,39 @@
 
         <div id="note-log">
             <ul id="note-list">
+                {{#each notes as |note|}}
+                    <div>
+                        {{note.title}}
+                    </div>
+                {{/each}}
             </ul>
         </div>
     </section>
     <section class="todo">
         <form action="submit" id="todos-form">
-        <h3>To-Do </h3>
-        <div class="todotitle">
-            <!-- css position above body -->
-            <ul>
-                css change width
-                <h5>To Do</h5><input id="todo-title" placeholder="To Do" />
-                <h5>Due Date</h5><input
-                    id="todo-due-input"
-                    type="datetime-local"
-                    value=""
-                />
-            </ul>
-            <button id="todo-but"> Save To-Do </button>
-        </form>
-            <div id="todo-log">
-                <ul id="todo-list">
+            <h3>To-Do </h3>
+            <div class="todotitle">
+                <!-- css position above body -->
+                <ul>
+                    css change width
+                    <h5>To Do</h5><input id="todo-title" placeholder="To Do" />
+                    <h5>Due Date</h5><input
+                        id="todo-due-input"
+                        type="datetime-local"
+                        value=""
+                    />
                 </ul>
             </div>
+            <button id="todo-but"> Save To-Do </button>
+        </form>
+        <div id="todo-log">
+            <ul id="todo-list">
+                {{#each todos as |todo|}}
+                    <div>
+                        {{todo.title}}
+                    </div>
+                {{/each}}
+            </ul>
         </div>
     </section>
     <div class="ran-act">

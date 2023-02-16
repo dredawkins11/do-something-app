@@ -44,12 +44,26 @@ router.get("/", async (req, res) => {
         res.status(500).json(error);
     }
 
-    console.log(req.session.user_id);
-    console.log(todos);
+    let notes;
+    try {
+        const notesData = await Note.findAll({
+            where: {
+                user_id: req.session.user_id,
+            },
+        });
+        notes = notesData.map((todo) => todo.get({ plain: true }));
 
+    } catch (error) {
+        res.status(500).json(error);
+    }
+
+    console.log(todos);
+    console.log(notes);
     res.render("homepage", {
         logged_in: req.session.logged_in,
+        user_id: req.session.user_id,
         todos: todos,
+        notes: notes,
     });
 });
 

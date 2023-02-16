@@ -18,7 +18,7 @@
                 Do Something
                 <h3 style="text-align: center;">Your daily Task Manager</h3></h1>
         </div>
-
+        <div>{{user_id}}</div>
         {{#if logged_in}}
             <a href="/login" id="logout">Logout</a>
         {{else}}
@@ -31,6 +31,6 @@
         {{#if logged_in}}
             <script src="/js/logout.js"></script>
         {{/if}}
-        
+        {{todos.[0].title}}
     </body>
 </html>
