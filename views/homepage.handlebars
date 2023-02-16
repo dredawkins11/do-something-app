@@ -1,18 +1,15 @@
 <body>
-    <section class="Notes">
-        <h3>Notes</h3>
+    <section class="Notes borders">
+        <label for="notesbod">Notes</label>
         <form action="submit">
             <div>
 
-                <label for="notesbod">Note Text</label>
-                <textarea id="notesbod" cols="50" rows="10"></textarea>
+            <textarea id="notesbod" cols="150" rows="12"></textarea>
             </div>
             <div>
 
                 <label for="notes-title">Note Title</label>
                 <input id="notes-title" placeholder="Title" />
-                <label for="due">Date Noted</label>
-                <input id="due" type="datetime-local" value="" />
                 <button type="submit" id="notebut"> Save Note</button>
             </div>
         </form>
@@ -24,12 +21,15 @@
     </section>
     <section class="todo">
         <form action="submit">
-        <h3>To-Do </h3>
-        class="todotitle">
-            //css position above body
+       <label for="todo">To Do's</label>
+      <section class="to-do-box">
+        <div class="today"/>
+        <div class="tomorrow"/>
+        <div class="soon"/>
+      </section>
+       <class="todotitle">
             <ul>
-                css change width
-                <h5>To Do</h5><input id="todo-title" placeholder="To Do" />
+                <input id="todo-title" placeholder="To Do" />
                 <h5>Due Date</h5><input
                     id="due"
                     type="datetime-local"
@@ -44,7 +44,7 @@
             </div>
         </div>
     </section>
-    <div class="ranact">
+    <div class="ranact borders">
         <H4>Huh I really have nothing to do?!</H4>
         <input />
         //is textarea better for API
