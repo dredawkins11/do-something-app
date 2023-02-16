@@ -1,13 +1,5 @@
 const Joi = window.joi;
 
-console.log(
-    validate.signUp({
-        email: "bruh@gmail.com",
-        username: "bruh",
-        password: "bruh1234",
-    }).error
-);
-
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
