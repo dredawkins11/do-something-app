@@ -1,13 +1,25 @@
 html, body {
     margin: 0;
-    padding: 0;
-    height: 100vh;
+    padding: 20px;
+    height: 125vh;
     width: 100%;
     /* overflow-x: hidden; */
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0ece2;
-    color: #596a79;
+    background-color: #6F360B;
+    color: #6F360B;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+img{
+    aspect-ratio: 1/1;
+    height: 150px;
+
+}
+#logo{
+    justify-content
 }
 
 section {
@@ -39,14 +51,14 @@ ul {
 
 .title{
     font-size: 200%;
-    margin: 2px;
     font-family: 'times new roman';
     color: #596a79;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     text-shadow: 2px 2px 75px #596a79, 2px 2px 20px #FB6B17;
     justify-content: space-evenly;
 }
+
 label[for=slogan]{
     font-family: cursive;
     font-size: 75%;
@@ -65,7 +77,7 @@ label[for=title]{
 }
 label[for=notes-title]{
     font-family: cursive;
-    font-size: 75%;
+    font-size: 80%;
 }
 label[for=notesbod]{
     font-family: cursive;
@@ -84,17 +96,38 @@ label[for=todo]{
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
-    
-    border: 3px solid #596a79;
     background-color: #dfd3c3;
+      border: 3px solid;
+    display: flexbox;
+   
+    background-color:  #dfd3c3;
+    border-style: dotted;
+   border-color: #6F360B;
+   border-spacing: 2px;
+   border-width: 5px;
+
+}
+.note-list-container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    background-color: #dfd3c3;
+      border: 3px solid;
+    display: flexbox;
+   
+    background-color:  #dfd3c3;
+    border-style: dotted;
+   border-color: #6F360B;
+   border-spacing: 2px;
+   border-width: 5px;
 }
 
 .notes form {
     display: flex;
-    justify-content: space-between;
+    height:auto;
     gap: 1rem;
     width: 100%;
-    margin: 0;
+    margin: 0px;
 }
 
 .note-body-container {
@@ -122,10 +155,14 @@ label[for=todo]{
 }
 
 .todo{
-    border: 3px solid #596a79;
+    border: 3px solid;
     display: flexbox;
     justify-content: space-around;
     background-color:  #dfd3c3;
+    border-style: dotted;
+   border-color: #6F360B;
+   border-spacing: 2px;
+   border-width: 5px;
 }
 
 .todo > div {
@@ -146,16 +183,6 @@ label[for=todo]{
         flex-wrap: nowrap;
         background-color: #6F360B;
       }
-      
-.today .tomorrow .soon   {
-    background-color: #f1f1f1;
-    width: 50%;
-    margin: 10px;
-    text-align: center;             
-    line-height: 75px;
-    font-size: 30px;
-}
-
 .todo-list-container {
     flex: 5;
 }
