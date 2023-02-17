@@ -13,7 +13,7 @@
         </form>
         <ul class="note-list-container">
             {{#each notes as |note|}}
-                <li class="list-item">
+                <li class="list-item note-item" data-id={{note.id}}>
                     <div>
                         <h3>
                             {{note.title}}
@@ -41,7 +41,7 @@
             </form>
             <ul class="todo-list-container">
                 {{#each todos as |todo|}}
-                    <li class="list-item">
+                    <li class="list-item todo-item" data-id={{todo.id}}>
                         <div>
                             <h3>
                                 {{todo.title}}

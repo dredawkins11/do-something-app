@@ -98,7 +98,7 @@ router.put("/:id", auth, async (req, res) => {
     }
 });
 
-router.delete("/", auth, async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
     try {
         const dbData = await Note.destroy({
             where: {
