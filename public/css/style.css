@@ -1,25 +1,27 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 20px;
-    height: 125vh;
+    /* height: 100vh; */
     width: 100%;
     /* overflow-x: hidden; */
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #6F360B;
-    color: #6F360B;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #6f360b;
+    color: #6f360b;
 }
-body{
-    display: flex;
-    flex-direction: column;
-}
-img{
+
+img {
     aspect-ratio: 1/1;
     height: 150px;
-
 }
-#logo{
-    justify-content
+#logo {
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section {
@@ -29,7 +31,7 @@ section {
 
 h1 {
     margin: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 textarea {
@@ -37,7 +39,8 @@ textarea {
     resize: vertical;
 }
 
-input, label {
+input,
+label {
     display: flex;
     height: 2rem;
     align-items: center;
@@ -47,48 +50,47 @@ ul {
     padding: 0;
 }
 
-
-
-.title{
+.title {
+    flex: 1;
     font-size: 200%;
-    font-family: 'times new roman';
+    font-family: "times new roman";
     color: #596a79;
     text-align: center;
     padding: 10px;
-    text-shadow: 2px 2px 75px #596a79, 2px 2px 20px #FB6B17;
+    text-shadow: 2px 2px 75px #596a79, 2px 2px 20px #fb6b17;
     justify-content: space-evenly;
 }
 
-label[for=slogan]{
+label[for="slogan"] {
     font-family: cursive;
     font-size: 75%;
 }
-#login{
-display: flexbox;
-position: right;
+#login {
+    display: flexbox;
+    position: right;
 }
-body{
+body {
     background-color: #f0ece2;
 }
 
-label[for=title]{
+label[for="title"] {
     font-family: cursive;
     font-size: 90%;
 }
-label[for=notes-title]{
+label[for="notes-title"] {
     font-family: cursive;
     font-size: 80%;
 }
-label[for=notesbod]{
+label[for="notesbod"] {
     font-family: cursive;
     font-size: 150%;
 }
-label[for=todo]{
+label[for="todo"] {
     font-family: cursive;
     font-size: 150%;
 }
-.Notes{
-    border-color:#596a79; 
+.Notes {
+    border-color: #596a79;
     border: 2px;
 }
 
@@ -97,34 +99,27 @@ label[for=todo]{
     flex-flow: column nowrap;
     align-items: stretch;
     background-color: #dfd3c3;
-      border: 3px solid;
-    display: flexbox;
-   
-    background-color:  #dfd3c3;
-    border-style: dotted;
-   border-color: #6F360B;
-   border-spacing: 2px;
-   border-width: 5px;
-
+    border: 3px dotted #6f360b;
+    border-spacing: 2px;
+    border-width: 5px;
 }
-.note-list-container{
+.note-list-container {
     display: flex;
     flex-flow: column nowrap;
     align-items: stretch;
     background-color: #dfd3c3;
-      border: 3px solid;
-    display: flexbox;
-   
-    background-color:  #dfd3c3;
+    /* border: 3px solid;
+
+    background-color: #dfd3c3;
     border-style: dotted;
-   border-color: #6F360B;
-   border-spacing: 2px;
-   border-width: 5px;
+    border-color: #6f360b;
+    border-spacing: 2px;
+    border-width: 5px; */
 }
 
 .notes form {
     display: flex;
-    height:auto;
+    height: auto;
     gap: 1rem;
     width: 100%;
     margin: 0px;
@@ -141,28 +136,28 @@ label[for=todo]{
     font-size: x-large;
     color: #596a79;
 }
-#notesbod{
-    border-style:double;
-    border-color: #6F360B;
+#notesbod {
+    border-style: double;
+    border-color: #6f360b;
     border-width: 4px;
     align-self: flex-start;
 }
 .borders {
-   border-style: dotted;
-   border-color: #6F360B;
-   border-spacing: 2px;
-   border-width: 5px;
+    border-style: dotted;
+    border-color: #6f360b;
+    border-spacing: 2px;
+    border-width: 5px;
 }
 
-.todo{
+.todo {
     border: 3px solid;
     display: flexbox;
     justify-content: space-around;
-    background-color:  #dfd3c3;
+    background-color: #dfd3c3;
     border-style: dotted;
-   border-color: #6F360B;
-   border-spacing: 2px;
-   border-width: 5px;
+    border-color: #6f360b;
+    border-spacing: 2px;
+    border-width: 5px;
 }
 
 .todo > div {
@@ -173,27 +168,28 @@ label[for=todo]{
 
 #todos-form {
     flex: 3;
-    border-color:#596a79; 
+    border-color: #596a79;
     border: 1px;
     height: 35%;
     color: #596a79;
 }
 .to-do-box {
-        display: flex;
-        flex-wrap: nowrap;
-        background-color: #6F360B;
-      }
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #6f360b;
+}
 .todo-list-container {
     flex: 5;
 }
-.ranact{
+.ranact {
     background-color: #dfd3c3;
     width: 99.4%;
     height: 35%;
     align-content: center;
-} 
+}
 
-input, label {
+input,
+label {
     display: block;
 }
 
@@ -202,9 +198,9 @@ input, label {
     align-items: center;
     justify-content: space-between;
     list-style: none;
-    transition: all .2s;
-    margin: .5rem 0;
-    padding: .25rem;
+    transition: all 0.2s;
+    margin: 0.5rem 0;
+    padding: 0.25rem;
     line-height: 3ch;
 }
 
@@ -219,12 +215,11 @@ input, label {
     background-color: #c4b4a1;
 }
 
-.list-item h3, .list-item p {
+.list-item h3,
+.list-item p {
     margin: 0;
 }
 
-.ranact{
+.ranact {
     border: 3px solid #596a79;
-} 
-
-
+}
