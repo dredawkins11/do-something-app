@@ -23,7 +23,7 @@
     "express-session": "^1.17.1",
     "joi": "^17.7.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.28.0"
   },
   "bugs": {
     "url": "https://github.com/dredawkins11/do-something-app/issues"
